@@ -1,0 +1,177 @@
+Figura Ate;
+Figura Mariana;
+Figura Rec;
+Figura Pen;
+Figura Hex;
+Figura Hep;
+Figura Oct;
+Figura Cir;
+
+// trian, cuaadra, penta, hexa, hepta, octa, circulo;
+
+ArrayList <Figura> Figuras;
+
+
+void setup(){
+ Ate = new Triangulo (5,5,5,5,5);
+ Mariana = new Cuadrado (5);
+ Rec = new Rectangulo (10);
+ Pen = new Pentagono (10);
+ Hex = new Hexagono (10);
+ Hep = new Heptagono (4);
+ Oct = new Octagono (4);
+ Cir = new Circulo (4);
+ 
+ 
+ Figuras = new ArrayList <Figura>();
+ Figuras.add(Ate);
+ Figuras.add(Mariana);
+}
+
+void draw(){
+  println(Ate.perimetro());
+  println(Mariana.perimetro());
+  println(Rec.perimetro());
+  println(Pen.perimetro());
+  println(Hex.perimetro());
+  println(Hep.perimetro());
+  println(Oct.perimetro());
+  println(Cir.perimetro());
+}
+
+//figuras geométricas
+
+interface Figura{
+ float perimetro();
+ float area();
+}
+
+class Triangulo implements Figura{
+  //b = base, h = altura, l = lado
+  float b, h, l1, l2, l3;
+  
+  Triangulo(float b_, float h_, float l1_, float l2_, float l3_){
+  b = b_;
+  h = h_;
+  l1 = l1_;
+  l2 = l2_;
+  l3 = l3_;
+  }
+  
+ float perimetro(){
+  return l1 + l2 + l3;
+ }
+ float area(){
+  return b*h/2;
+ }
+}
+
+class Cuadrado implements Figura{
+  float l;
+  
+  Cuadrado(float l_){
+  l = l_;
+  }
+  
+  float perimetro(){
+    return l*4;
+ }
+  float area(){
+    return l*l; 
+  }
+}
+
+class Rectangulo implements Figura{
+  float l;
+  
+  Rectangulo(float l_){
+  l = l_;
+  }
+  
+  float perimetro(){
+    return l*4;
+ }
+  float area(){
+    return l*l; 
+  }
+}
+
+class Pentagono implements Figura{
+ float l;
+ 
+ Pentagono(float l_){
+ l = l_;
+ }
+ 
+ float perimetro(){
+  return l*5;
+ }
+ float area(){
+  return l*l;
+ }
+}
+
+class Hexagono implements Figura{
+ float l;
+ 
+ Hexagono(float l_){
+ l = l_;
+ }
+ 
+ float perimetro(){
+  return l*6;
+ }
+ 
+float area(){
+  return l*l;
+ }
+}
+
+class Heptagono implements Figura{
+ float l;
+ 
+ Heptagono (float l_){
+ l = l_;
+ }
+ 
+ float perimetro(){
+  return l*7;
+ }
+ 
+float area(){
+  return l*l;
+ }
+}
+
+class Octagono implements Figura{
+ float l;
+ 
+ Octagono(float l_){
+ l = l_;
+ }
+ 
+float perimetro(){
+  return l*8;
+ }
+ 
+float area(){
+  return l*l;
+ }
+}
+
+class Circulo implements Figura{
+ float d;
+ float r;
+ 
+ Circulo (float d_){
+ d = d_;
+ }
+ 
+ float perimetro(){
+  return (PI*d);
+ }
+ 
+float area(){
+  return (PI * (r*r))/2;
+ }
+}
